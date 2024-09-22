@@ -1,0 +1,210 @@
+$dark_blue: hsl(240, 38%, 20%);
+$grayish_blue: hsl(240, 18%, 77%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+    font-size: 16px;
+    color: $dark_blue;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("images/pattern-bg.svg"), url("images/pattern-quotes.svg"), url("images/pattern-curve.svg");
+    background-repeat: no-repeat;
+    background-position: right 10% center, 20% 25%, left bottom;
+    background-size: auto 65%, auto, auto;
+
+    main {
+        width: 70%;
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        article {
+            display: flex;
+            align-items: center;
+
+            .pic {
+                order: 1;
+                flex-basis: 45%;
+                position: relative;
+                right: 5%;
+
+                .person {
+                    width: 100%;
+                    min-width: 350px;
+                    max-width: 600px;
+                    position: relative;
+                    top: 4px;
+                    z-index: -10;
+                }
+
+                .panel {
+                    padding: 0 10px;
+                    width: 80px;
+                    height: 40px;
+                    background-color: white;
+                    border-radius: 20px;
+                    box-shadow: 0 0 10px 2px #ddd;
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    position: absolute;
+                    left: 40px;
+                    bottom: -20px;
+
+                    img {
+                        z-index: 10;
+                    }
+
+                    img:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .testimonial {
+                flex-basis: 60%;
+
+                .words {
+                    font-size: 2rem;
+                    font-weight: 300;
+                    line-height: 1.3;
+                    word-spacing: 4px;
+                    margin-bottom: 20px;
+                }
+
+                .name {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+
+                    .title {
+                        font-size: 1.25rem;
+                        font-weight: 500;
+                        color: $grayish_blue;
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+
+        article.invisible {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    body {
+        background-position: right 10% center, 15% 20%, left bottom;
+        background-size: auto 70%, 10% auto, auto;
+
+        main {
+            width: 80%;
+
+            .pic {
+                right: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:990px) {
+    body {
+        background-position: right 10% center, 15% 20%, left bottom;
+        background-size: auto 60%, 8% auto, auto 12%;
+
+        main {
+            width: 85%;
+
+            article {
+                .pic {
+                    .person {
+                        min-width: 280px;
+                    }
+                }
+
+                .testimonial {
+                    .words {
+                        font-size: 1.5rem;
+                        word-spacing: 0;
+                    }
+
+                    .name {
+                        font-size: 1.1rem;
+
+                        .title {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:750px) {
+    body {
+        background-position: center top 30px, center top 65%, left bottom;
+        background-size: 60%, 8%, 100% 10%;
+
+        main {
+            width: 90%;
+
+            article {
+                padding: 30px 0;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .pic {
+                    order: 0;
+                    flex-basis: auto;
+                    margin-bottom: 50px;
+                    text-align: center;
+
+                    .person {
+                        width: 80%;
+                        min-width: 220px;
+                        max-width: 300px;
+                    }
+
+                    .panel {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+
+                .testimonial {
+                    flex-basis: auto;
+                    text-align: center;
+
+                    .words {
+                        font-size: 1.25rem;
+                    }
+
+                    .name {
+                        font-size: 1rem;
+
+                        .title {
+                            font-size: 1rem;
+                            margin-left: 0;
+                            margin-top: 6px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
